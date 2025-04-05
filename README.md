@@ -1,10 +1,7 @@
 # API do Projeto Top 5 Tião Carreiro e Pardinho
 Bem-vindo ao repositório da API do projeto "Top 5 Tião Carreiro e Pardinho". Esta API fornece os endpoints necessários para gerenciar e exibir as músicas mais populares da dupla, permitindo que usuários sugiram novas músicas através de links do YouTube. Além disso, oferece funcionalidades como registro e login de usuários, autenticação e operações administrativas para gerenciamento das músicas sugeridas.
 
-## Estrutura do Projeto
-Este projeto é dividido em dois repositórios:
-
-Backend (este repositório): Implementado com Laravel 11 e SQLite.
+## Implementado com Laravel 11 e SQLite.
 
 
 ## Para facilitar o desenvolvimento e a execução, os repositórios devem ser organizados da seguinte forma:
