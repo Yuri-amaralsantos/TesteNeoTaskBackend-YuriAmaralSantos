@@ -1,66 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# API do Projeto Top 5 Tião Carreiro e Pardinho
+Bem-vindo ao repositório da API do projeto "Top 5 Tião Carreiro e Pardinho". Esta API fornece os endpoints necessários para gerenciar e exibir as músicas mais populares da dupla, permitindo que usuários sugiram novas músicas através de links do YouTube. Além disso, oferece funcionalidades como registro e login de usuários, autenticação e operações administrativas para gerenciamento das músicas sugeridas.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Estrutura do Projeto
+Este projeto é dividido em dois repositórios:
 
-## About Laravel
+Backend (este repositório): Implementado com Laravel 11 e SQLite.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Para facilitar o desenvolvimento e a execução, os repositórios devem ser organizados da seguinte forma:
+project-root/
+├── backend/   # Repositório da API (este repositório)
+└── frontend/  # Repositório do frontend
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Funcionalidades Principais
+Autenticação de Usuários: Permite que usuários se registrem, façam login e logout.
 
-## Learning Laravel
+Sugestão de Músicas: Usuários autenticados podem sugerir novas músicas através de links do YouTube.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Gerenciamento de Sugestões: Administradores podem aprovar ou rejeitar sugestões de músicas.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+CRUD de Músicas: Administradores podem adicionar, editar e excluir músicas da lista.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Paginação: Exibe a lista de músicas com paginação, destacando as 5 primeiras e listando as demais com paginação.
 
-## Laravel Sponsors
+Pré-requisitos
+Antes de iniciar, certifique-se de ter instalado em sua máquina:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+PHP (versão 8.0 ou superior)
 
-### Premium Partners
+Composer
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Docker (opcional, caso opte por executar via Docker)
 
-## Contributing
+## Configuração e Execução da API
+Você pode executar a API de duas maneiras: diretamente com PHP e Composer ou utilizando Docker.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Execução com PHP e Composer
+Instale as dependências:
 
-## Code of Conduct
+composer install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Execute as migrações e seeders:
 
-## Security Vulnerabilities
+php artisan migrate --seed
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Inicie o servidor de desenvolvimento:
 
-## License
+php artisan serve
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+A API estará disponível em http://localhost:8000.
+
+### 2. Execução com Docker
+Configure as variáveis de ambiente:
+
+Renomeie o arquivo .env.example para .env e configure as variáveis conforme necessário para o ambiente Docker.
+
+No diretório frontend , execute:
+
+docker-compose up --build
+
+Isso construirá a imagem e iniciará o contêiner para a API.
+
+Acesse a API:
+
+A API estará disponível em http://localhost:3000.
+
+## Comunicação entre Frontend e Backend
+Para garantir que o frontend se comunique corretamente com a API:
+
+Execução com PHP e Composer: O frontend deve ser configurado para acessar a API em http://localhost:8000. Certifique-se de que a API esteja em execução antes de iniciar o frontend.
+
+Execução com Docker: O Docker Compose configura uma rede interna (app-network) onde os serviços frontend e backend podem se comunicar diretamente. O frontend acessa a API através do nome do serviço backend definido no docker-compose.yml.
+
+## Funcionalidades Detalhadas
+Autenticação de Usuários
+Utilizamos o Laravel Sanctum para gerenciar a autenticação de usuários na API. Isso permite a criação de tokens de acesso seguros para autenticar solicitações de usuários. Para mais informações sobre como implementar autenticação com Laravel Sanctum, consulte a documentação oficial.
+
+Paginação
+A API fornece endpoints que retornam listas paginadas de músicas, destacando as 5 primeiras e listando as demais com paginação. A paginação é implementada utilizando os recursos nativos do Laravel. Para mais detalhes, consulte a documentação de paginação do Laravel.
+
+Gerenciamento de Músicas
+Administradores têm acesso a endpoints que permitem operações de CRUD (Criar, Ler, Atualizar, Deletar) para gerenciar as músicas sugeridas. Isso inclui a aprovação ou rejeição de sugestões feitas por usuários. Para implementar operações CRUD no Laravel 11, você pode seguir este tutorial de CRUD com Laravel 11.
+
+
+
